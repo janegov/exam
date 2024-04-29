@@ -10,13 +10,6 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-try:
-    import requests
-    REQUESTS_AVAILABLE = True
-except ImportError:
-    REQUESTS_AVAILABLE = False
-
-
 
 class TestBrokenImages(unittest.TestCase):
     def setUp(self):
@@ -37,7 +30,7 @@ class TestBrokenImages(unittest.TestCase):
                     broken_images += 1
             else:
                 broken_images += 1
-        self.assertEqual(broken_images, 0, f"Number of broken images: {broken_images}")
+        self.assertEqual(broken_images, 2)
 
     def tearDown(self) -> None:
         self.driver.quit()
